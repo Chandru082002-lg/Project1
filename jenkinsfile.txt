@@ -1,19 +1,17 @@
 pipeline {
-    agent any   // run on any available Jenkins agent
+    agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Running python script 1'
-                bat "python C:\\Users\\Dell\\Downloads\\hello_world.py"
+                git branch: 'main', url: 'https://github.com/Chandru082002-lg/Project1.git'
             }
         }
 
-        stage('Stage 2') {
+        stage('Run Script') {
             steps {
-                echo 'Hello from Stage 2'
+                bat "python C:\\Users\\Dell\\Downloads\\hello_world.py"
             }
         }
     }
 }
-
